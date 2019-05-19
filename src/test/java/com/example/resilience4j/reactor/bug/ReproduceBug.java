@@ -22,7 +22,7 @@ public class ReproduceBug
     }
 
     @Test
-    public void reactorContextShouldBeAvailableWithResilience4jCircuitBreaker() // this test fails
+    public void reactorContextShouldBeAvailableWithResilience4jCircuitBreaker() // this test fails with java.util.NoSuchElementException: Context is empty
     {
         Mono<String> stringMono = Mono.just("myData")
                                       .doOnEach(signal -> System.out.println(signal.getContext().<String>get("key")))
